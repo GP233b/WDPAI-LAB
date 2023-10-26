@@ -1,2 +1,2 @@
-# WDPAI-LAB1
-Repozytorium na pierwsze laboratoria z WDPAI 
+# WDPAI-LAB
+Repozytorium projektu Przeglądarkai Licytacji internetowych. 
