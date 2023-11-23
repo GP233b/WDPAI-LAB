@@ -1,2 +1,2 @@
 # WDPAI-LAB
-Repozytorium projektu Przeglądarkai Licytacji internetowych. 
+Repozytorium projektu Przeglądarki Licytacji internetowych. 
