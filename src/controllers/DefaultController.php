@@ -13,4 +13,9 @@ class DefaultController extends AppController {
     {
         $this->render('home');
     }
+
+    public function licytacje()
+    {
+        $this->render('licytacje');
+    }
 }

@@ -9,7 +9,7 @@ img{
 .container {
     width: 100vw;
     height: 100vh;
-    background: var(--Linear, linear-gradient(180deg, #2BB2A2 0%, rgba(123, 160, 156, 0.00) 100%));
+    background: linear-gradient(180deg, #2BB2A2 0%, rgba(123, 160, 156, 0.00) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
