@@ -50,6 +50,11 @@ button{
     transition: background-color 0.3s;
 }
 
+button:hover {
+    background-color: #45a049;
+}
+
+
 @media only screen and (max-device-width: 420px) {
     .container {
         flex-direction: column;
