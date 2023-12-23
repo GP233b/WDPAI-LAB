@@ -13,9 +13,9 @@
     </div>
     <!-- New Section for Licytacje (Auctions) -->
     <div class="auction-section">
-        <h2>Licytacje</h2>
-        <p>Tutaj znajdziesz informacje o aktualnych licytacjach.</p>
-        <!-- Add your auction details or content here -->
+        <h2>Licytacje Archiwalne</h2>
+        <p>Tutaj znajdziesz wszystkie zakończone licytacje</p>
+
     </div>
     <div class="login-container">
         <form>

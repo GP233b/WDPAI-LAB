@@ -18,4 +18,12 @@ class DefaultController extends AppController {
     {
         $this->render('licytacje');
     }
+    public function licytacje_archiwalne()
+    {
+        $this->render('licytacje_archiwalne');
+    }
+    public function moje_licytacje()
+    {
+        $this->render('moje_licytacje');
+    }
 }
