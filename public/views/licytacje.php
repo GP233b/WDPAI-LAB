@@ -23,7 +23,7 @@
         <form>
             <div class="table-container">
                 <div class="table-header">
-                    <div class="table-cell">Numer</div>
+                    <div class="table-cell">ID Licytacji</div>
                     <div class="table-cell">Nazwa</div>
                     <div class="table-cell">Zdjęcie</div>
                     <div class="table-cell">Data zakończenia licytacji</div>

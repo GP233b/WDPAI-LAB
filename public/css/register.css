@@ -43,6 +43,13 @@ form.login {
     border: 1px solid #707070;
     border-radius: 33px;
 }
+form.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
 
 button {
     background: linear-gradient(270deg, #C23B32 0%, rgba(112, 52, 246, 0.50) 99.99%, rgba(80, 52, 192, 0.00) 100%);
@@ -68,6 +75,7 @@ input {
     width: 50%;
 }
 
+
 @media only screen and (max-device-width: 420px) {
     .container {
         flex-direction: column;
@@ -87,3 +95,11 @@ input {
         margin: 2em;
     }
 }
+
+.no-valid {
+    border: 3px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
+
