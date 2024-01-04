@@ -26,4 +26,8 @@ class DefaultController extends AppController {
     {
         $this->render('moje_licytacje');
     }
+    public function licytacja()
+    {
+        $this->render('licytacja');
+    }
 }

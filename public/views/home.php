@@ -13,11 +13,17 @@
         <img src="/public/img/logo.svg">
     </div>
     <div class="login-container">
-        <form>
-            <button type="submit">LICYTACJE</button>
-            <button type="submit">MOJE AUKCJE</button>
-            <button type="submit">LICYTACJE ARCHIWALNE</button>
+        <form id="myForm">
+            <button type="button" onclick="changeUrl('/licytacje')">LICYTACJE</button>
+            <button type="button" onclick="changeUrl('/moje_licytacje')">MOJE AUKCJE</button>
+            <button type="button" onclick="changeUrl('/licytacje_archiwalne')">LICYTACJE ARCHIWALNE</button>
         </form>
+
+        <script>
+            function changeUrl(newUrl) {
+                window.location.href = newUrl;
+            }
+        </script>
 
 
     </div>

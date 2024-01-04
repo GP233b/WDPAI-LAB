@@ -7,6 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5433/licytacje</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="ssl" value="false" />
+        <property name="sslcert" />
+        <property name="sslfactory" />
+      </driver-properties>
     </data-source>
   </component>
 </project>
