@@ -4,7 +4,7 @@
 <head>
     <!-- Inne elementy nagłówka -->
 
-    <script src="public\js\changeUrl.js"></script>
+    <script src="\public\js\changeUrl.js"></script>
     <link rel="stylesheet" type="text/css" href="public/css/licytacje.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
