@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -6,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/public/js/session.js"></script>
+    <script src="/public/js/generateTableRows.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -13,16 +13,6 @@
     checkId()
 </script>
 
-<?php
-    // Pobierz dane licytacji dla danego użytkownika
-    $db = new PDO("pgsql:host=db;port=5432;dbname=licytacje", "admin", "haslo");
-
-    $stmt = $db->prepare("SELECT * FROM getsavedauctionsdetails(:userId)");
-    $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
-    var_dump($userId);
-    $stmt->execute();
-    $licytacje = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    ?>
 
 <div class="container">
     <button class="logout-button" type="button" onclick="logout()">WYLOGUJ</button>
@@ -37,7 +27,7 @@
 
     <div class="login-container">
         <form>
-            <div class="table-container">
+            <div class="table-container" id="tableContainer">
                 <div class="table-header">
                     <div class="table-cell">Numer</div>
                     <div class="table-cell">Zdjęcie</div>
@@ -46,25 +36,15 @@
                     <div class="table-cell">Miejscowość</div>
                     <div class="table-cell">Nazwa</div>
                 </div>
-
-                <?php
-                // Iteruj przez dane licytacji i generuj wiersze tabeli
-                foreach ($licytacje as $row) {
-                    echo '<div class="table-row">';
-                    echo '<div class="table-cell">' . $row['lic_id'] . '</div>';
-                    echo '<div class="table-cell"><img src="data:image/jpeg;base64,' . base64_encode(stream_get_contents($row['lic_picture'])) . '"></div>';
-                    echo '<div class="table-cell">' . $row['lic_date'] . '</div>';
-                    echo '<div class="table-cell">' . $row['lic_highest_price'] . '</div>';
-                    echo '<div class="table-cell">' . $row['lic_town'] . '</div>';
-                    echo '<div class="table-cell">' . $row['lic_name'] . '</div>';
-                    echo '<div class="table-cell"><button type="button" onclick="changeUrl(' . $row['lic_id'] . ')">Wejdz</button></div>';
-                    echo '</div>';
-                }
-                ?>
-
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    console.log(getId());
+    API(getId());
+</script>
+
 </body>
 </html>
