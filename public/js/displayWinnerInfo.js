@@ -8,3 +8,4 @@ function displayWinnerInfo(licytacjaDate) {
         document.write("<div class=\"table-cell\">Aktualny Wygrywający</div>");
     }
 }
+

@@ -6,12 +6,17 @@
 
     <script src="\public\js\changeUrl.js"></script>
     <link rel="stylesheet" type="text/css" href="public/css/licytacje.css"/>
+    <script src="\public\js\session.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+<script>
+    checkId()
+</script>
 <div class="container">
+    <button class="logout-button" type="button" onclick="logout()">WYLOGUJ</button>
     <div class="logo">
         <img src="/public/img/logo.svg">
     </div>
@@ -34,8 +39,7 @@
                 <?php
                 // Przykład kodu PHP do pobrania danych z bazy danych
                 $db = new PDO("pgsql:host=db;port=5432;dbname=licytacje", "admin", "haslo");
-                $currentDate = date('Y-m-d');
-                $stmt = $db->query("SELECT * FROM licytacje WHERE lic_date >= '$currentDate' ORDER BY lic_id");
+                $stmt = $db->query("SELECT * FROM current_auction");
                 $licytacje = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 // Iterowanie przez dane z bazy danych i generowanie wierszy tabeli
