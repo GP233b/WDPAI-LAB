@@ -16,5 +16,7 @@ Routing::get('licytacja', 'DefaultController');
 Routing::post('login', 'SecurityController');
 Routing::post('register', 'SecurityController');
 Routing::post('getSavedAuctions', 'IDController');
+Routing::post('updateAuction', 'AuctionUpdater');
+Routing::post('saveAuction', 'SaveAuctionController');
 
 Routing::run($path);

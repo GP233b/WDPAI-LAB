@@ -30,11 +30,11 @@
             <div class="table-container" id="tableContainer">
                 <div class="table-header">
                     <div class="table-cell">Numer</div>
+                    <div class="table-cell">Nazwa</div>
                     <div class="table-cell">Zdjęcie</div>
-                    <div class="table-cell">Data zakończenia licytacji</div>
+                    <div class="table-cell">Data</div>
                     <div class="table-cell">Cena wygrywająca</div>
                     <div class="table-cell">Miejscowość</div>
-                    <div class="table-cell">Nazwa</div>
                 </div>
             </div>
         </form>

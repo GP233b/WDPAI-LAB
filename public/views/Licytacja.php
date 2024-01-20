@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/public/js/displayWinnerInfo.js"></script>
     <script src="/public/js/session.js"></script>
+    <script src="/public/js/auctionHandler.js"></script>
+    <script src="/public/js/saveAuction.js"></script>
     <title>Document</title>
 </head>
 
@@ -43,6 +45,11 @@
         // Wyświetl obraz
         if ($licytacjaDetails !== false && $licytacjaDetails['lic_picture'] !== null) {
             echo '<div class="image-price-container">';
+
+            echo '<button type="button" onclick="zapiszAukcje()" data-licytacja-id="' . $licytacjaId . '">ZAPISZ AUKCJĘ</button>';
+
+
+
             $base64Image = base64_encode(stream_get_contents($licytacjaDetails['lic_picture']));
 
             echo '<div class="image-container"><img src="data:image/jpeg;base64,' . $base64Image . '"></div>';
@@ -83,6 +90,19 @@
         echo '<div class="opis-container">';
         echo '<h2>Opis licytacji</h2>';
         echo '<div class="opis-content">' . $licytacjaDetails['lic_opis'] . '</div>';
+        echo '</div>';
+
+        // Dodaj formularz do wprowadzania nowej ceny
+        echo '<div class="bid-form-container">';
+        echo '<label for="bid-amount">Wprowadź nową cenę:</label>';
+        echo '<input type="text" id="bid-amount" name="bid_amount" required>';
+
+        // Dodaj ukryte pole z licytacjaId
+        echo '<input type="hidden" id="licytacja-id" name="licytacja_id" value="' . $licytacjaId . '">';
+
+        echo '<button type="button" onclick="wyslijOferte()">Złóż ofertę</button>';
+        echo '</div>';
+        echo '</form>';
         echo '</div>';
     } else {
         echo '<div class="table-cell">Nieprawidłowe ID licytacji. Otrzymane ID: ' . $licytacjaId . '</div>';

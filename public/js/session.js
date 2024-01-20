@@ -1,4 +1,3 @@
-
 function init(id) {
     let storedId = sessionStorage.getItem('id');
     if(storedId){
@@ -14,10 +13,11 @@ function init(id) {
 }
 
 
+
 function checkId() {
     let storedId = sessionStorage.getItem('id');
     if (!storedId) {
-      //  window.location.href = '/';
+        //  window.location.href = '/';
     }
 }
 
@@ -32,7 +32,6 @@ function getId(){
 function logout() {
     // Wyczyść dane z sesji
     sessionStorage.clear();
-
 
     // Przekieruj na stronę logowania
     window.location.href = '/';
