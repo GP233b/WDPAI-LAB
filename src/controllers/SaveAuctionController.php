@@ -5,6 +5,7 @@ class SaveAuctionController
 
     public function saveAuction()
     {
+        global $db;
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
         if ($contentType === "application/json") {

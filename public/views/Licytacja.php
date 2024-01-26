@@ -46,7 +46,7 @@
         if ($licytacjaDetails !== false && $licytacjaDetails['lic_picture'] !== null) {
             echo '<div class="image-price-container">';
 
-            echo '<button type="button" onclick="zapiszAukcje()" data-licytacja-id="' . $licytacjaId . '">ZAPISZ AUKCJĘ</button>';
+            echo '<button type="button" onclick="zapiszAukcje()" ">ZAPISZ AUKCJĘ</button>';
 
 
 
@@ -93,21 +93,27 @@
         echo '</div>';
 
         // Dodaj formularz do wprowadzania nowej ceny
-        echo '<div class="bid-form-container">';
-        echo '<label for="bid-amount">Wprowadź nową cenę:</label>';
-        echo '<input type="text" id="bid-amount" name="bid_amount" required>';
+        $currentDate = date('Y-m-d');
+        if ($licytacjaDetails !== false && $licytacjaDetails['lic_date'] > $currentDate) {
+            // Wyświetl formularz tylko gdy lic_date jest większe niż aktualna data
+            echo '<div class="bid-form-container">';
+            echo '<label for="bid-amount">Wprowadź nową cenę:</label>';
+            echo '<input type="text" id="bid-amount" name="bid_amount" required>';
 
-        // Dodaj ukryte pole z licytacjaId
-        echo '<input type="hidden" id="licytacja-id" name="licytacja_id" value="' . $licytacjaId . '">';
+            // Dodaj ukryte pole z licytacjaId
+            echo '<input type="hidden" id="licytacja-id" name="licytacja_id" value="' . $licytacjaId . '">';
 
-        echo '<button type="button" onclick="wyslijOferte()">Złóż ofertę</button>';
-        echo '</div>';
-        echo '</form>';
-        echo '</div>';
+            echo '<button type="button" onclick="wyslijOferte()">Złóż ofertę</button>';
+            echo '</div>';
+        }
     } else {
         echo '<div class="table-cell">Nieprawidłowe ID licytacji. Otrzymane ID: ' . $licytacjaId . '</div>';
     }
+
     ?>
+
+
+
 </div>
 
 </body>

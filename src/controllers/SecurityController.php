@@ -6,8 +6,10 @@ require_once __DIR__.'/../repository/UserRepository.php';
 
 class SecurityController extends AppController {
 
+
     public function login()
     {
+
         $userRepository = new UserRepository();
 
         if (!$this->isPost()) {
@@ -19,6 +21,7 @@ class SecurityController extends AppController {
 
         $user = $userRepository->getUser($email);
 
+
         if (!$user) {
             return $this->render('login', ['messages' => ['User not found!']]);
         }
@@ -27,7 +30,9 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
 
-        if ($user->getPassword() !== $password) {
+
+        if (!$this->verifyPassword($password,$user->getPassword(),$user->getSalt())) {
+
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
@@ -41,6 +46,9 @@ class SecurityController extends AppController {
 
     public function register()
     {
+
+        $userRepository = new UserRepository();
+
         if (!$this->isPost()) {
             return $this->render('register');
         }
@@ -50,18 +58,40 @@ class SecurityController extends AppController {
         $confirmedPassword = $_POST['confirmedPassword'];
         $name = $_POST['name'];
         $surname = $_POST['surname'];
-        $phone = $_POST['phone'];
 
         if ($password !== $confirmedPassword) {
             return $this->render('register', ['messages' => ['Please provide proper password']]);
         }
 
-        //TODO try to use better hash function
-        $user = new User($email, md5($password), $name, $surname);
-        $user->setPhone($phone);
+        $options = [
+            'cost' => 13,
+        ];
+        $salt = password_hash(random_bytes(22), PASSWORD_BCRYPT, $options);
 
-        $this->userRepository->addUser($user);
+
+        $hashedPassword = password_hash($password . $salt, PASSWORD_BCRYPT, $options);
+
+
+        $user = new User($email, $hashedPassword, $name, $surname,$salt);
+
+
+        $userRepository->addUser($user);
+
+
+
+
 
         return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
     }
+
+
+    function verifyPassword($userInputPassword, $storedHashedPassword, $storedSalt) {
+
+        $combinedPassword = $userInputPassword . $storedSalt;
+
+
+        return password_verify($combinedPassword, $storedHashedPassword);
+    }
+
+
 }

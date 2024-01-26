@@ -27,8 +27,9 @@
             <input name="confirmedPassword" type="password" placeholder="confirm password">
             <input name="name" type="text" placeholder="name">
             <input name="surname" type="text" placeholder="surname">
+            <button type="submit">REGISTER</button>
         </form>
-        <button type="submit">REGISTER</button>
+
     </div>
 </div>
 </body>
